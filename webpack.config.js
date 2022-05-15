@@ -13,6 +13,7 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
     clean: true,
   },
   module: {
@@ -32,4 +33,7 @@ module.exports = {
     new HTMLPlugin({ template: './src/index.html' }),
     new CopyPlugin({ patterns: [{ from: 'static' }] }),
   ],
+  devServer: {
+    historyApiFallback: true,
+  },
 };
